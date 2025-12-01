@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Base, Meu Lar: Homenagem</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* === Paleta de Cores === */
+        :root {
+            --cor-primaria: #A8785A; /* Caramelo/Terracota suave */
+            --cor-secundaria: #E6DBC9; /* Bege claro/Quase branco */
+            --cor-destaque: #8B0000; /* Vermelho bordô escuro (Inspiração Levi's) */
+            --cor-texto-escuro: #4A3A2A; /* Marrom escuro para texto */
+            --cor-texto-claro: #FFFFFF;
+            --cor-fundo-card: #FAF6F0; /* Bege muito claro */
+            --sombra-card: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* === Estilos Base === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--cor-texto-escuro);
+            background-color: var(--cor-secundaria);
+            line-height: 1.6;
+            overflow-x: hidden; /* Evita barra de rolagem horizontal */
+        }
+
+        /* Títulos */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--cor-destaque);
+            text-align: center;
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        /* Container principal */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        /* === Navegação (Header) === */
+        header {
+            background-color: var(--cor-texto-escuro);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--cor-texto-claro);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            font-weight: 400;
+            transition: color 0.3s, background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            color: var(--cor-destaque);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* === Seção Hero (Destaque da Foto) === */
+        #hero {
+            position: relative;
+            text-align: center;
+            padding: 4rem 0 6rem;
+            background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            color: var(--cor-texto-claro);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
+        .hero-image-container {
+            margin-top: 3rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image {
+            width: 90%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 20px; /* Bordas arredondadas */
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombra elegante */
+            border: 5px solid var(--cor-texto-claro);
+            transition: transform 0.5s;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* === Seções de Conteúdo === */
+        section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--cor-fundo-card); /* Fundo sutil para seções alternadas */
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--cor-primaria);
+            margin-bottom: 3rem;
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        /* === Estilo dos Cards (Pai, Mãe) === */
+        .cards-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: var(--cor-texto-claro);
+            border-radius: 15px;
+            box-shadow: var(--sombra-card);
+            padding: 2rem;
+            max-width: 450px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            text-align: left;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-10px); /* Efeito Hover sutil */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: var(--cor-primaria);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .card i {
+            color: var(--cor-destaque);
+            margin-right: 10px;
+        }
+
+        /* === Nossa História & Gratidão === */
+        .text-block {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .text-block p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .icon-container {
+            margin-top: 2rem;
+            font-size: 2.5rem;
+            color: var(--cor-primaria);
+        }
+
+        .icon-container i {
+            margin: 0 15px;
+        }
+
+        /* === Carrossel de Fotos (Momentos) === */
+        #momentos {
+            background-color: var(--cor-secundaria);
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: var(--sombra-card);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--cor-texto-claro);
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 50;
+            font-size: 1.5rem;
+            line-height: 1;
+            transition: background 0.3s;
+        }
+
+        .carousel-button:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        #prevBtn {
+            left: 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        #nextBtn {
+            right: 0;
+            border-radius: 10px 0 0 10px;
+        }
+
+        /* === Rodapé === */
+        footer {
+            background-color: var(--cor-texto-escuro);
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 2rem 0;
+            font-size: 1.1rem;
+        }
+
+        footer span {
+            color: var(--cor-primaria);
+            font-weight: 600;
+        }
+
+        /* === Animações (Fade-in ao rolar) === */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === Responsividade === */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            
+            nav a {
+                margin: 0 0.3rem;
+                padding: 0.5rem;
+            }
+
+            .cards-grid {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .card {
+                max-width: 100%;
+            }
+
+            .icon-container i {
+                margin: 0 10px;
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="#hero">Início</a>
+            <a href="#pai">Pai</a>
+            <a href="#mae">Mãe</a>
+            <a href="#historia">Nossa História</a>
+            <a href="#gratidao">Gratidão</a>
+            <a href="#momentos">Momentos</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content fade-in">
+            <h1>O Laço Que Nos Une</h1>
+            <p>Celebrando o amor, a força e a união da nossa família.</p>
+            <div class="hero-image-container">
+                <img src="familia murilo.jpg" alt="Família unida em foto de destaque" class="hero-image">
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="pai" class="fade-in">
+        <div class="container">
+            <h2 class="fade-in">Meu Pai</h2>
+            <p class="section-subtitle fade-in">A força tranquila que nos guia.</p>
+            
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <h3><i class="fas fa-hand-rock"></i> Força e Apoio</h3>
+                    <p>Você é a rocha da nossa família, o pilar de força e segurança. Seu abraço é o porto mais seguro que conheço, e sua orientação, o farol que ilumina cada caminho incerto.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3><i class="fas fa-heart"></i> O Exemplo</h3>
+                    <p>Seu caráter e integridade nos ensinam mais do que mil palavras. A forma como você enfrenta os desafios com serenidade é uma inspiração diária para mim. Meu primeiro herói.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="mae" class="fade-in">
+        <div class="container">
+            <h2 class="fade-in">Minha Mãe</h2>
+            <p class="section-subtitle fade-in">A alma gentil que nos preenche de amor.</p>
+
+            <div class="cards-grid">
+                <div class="card fade-in">
+                    <h3><i class="fas fa-magic"></i> Ternura e Zelo</h3>
+                    <p>Seu cuidado é a magia que transforma o nosso lar em um refúgio de paz. Sua capacidade de amar incondicionalmente é um presente que levarei para sempre em minha vida.</p>
+                </div>
+                <div class="card fade-in">
+                    <h3><i class="fas fa-lightbulb"></i> Sabedoria e Calor</h3>
+                    <p>A inteligência do seu olhar e o calor da sua presença nos fazem sentir amados a cada instante. Você é a fonte de toda a alegria e o aconchego que nos cerca.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="historia" class="fade-in">
+        <div class="container">
+            <h2 class="fade-in">Nossa História</h2>
+            <p class="section-subtitle fade-in">O passado que construiu o nosso presente.</p>
+            
+            <div class="text-block fade-in">
+                <p>Nossa história é tecida com as linhas mais fortes: a de duas almas que se uniram para criar um mundo só nosso. Cada momento, desde o início da jornada de vocês, se tornou a fundação sólida sobre a qual pude crescer e florescer. Somos um trio inseparável, unidos por um destino e, acima de tudo, por um amor infinito e verdadeiro.</p>
+                <p>Obrigado por cada capítulo, cada risada e cada lição. Vocês são a definição de parceria e cumplicidade.</p>
+            </div>
+
+            <div class="icon-container fade-in">
+                <i class="fas fa-people-arrows"></i>
+                <i class="fas fa-seedling"></i>
+                <i class="fas fa-home"></i>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="gratidao" class="fade-in">
+        <div class="container">
+            <h2 class="fade-in">Gratidão</h2>
+            <p class="section-subtitle fade-in">O sentimento mais puro que podemos expressar.</p>
+            
+            <div class="text-block fade-in">
+                <p>A gratidão que sinto por ter vocês como meus pais é imensurável. É um sentimento que transborda e me impulsiona. Sou grato pela educação, pelos valores, pelos sacrifícios silenciosos e pela infinita paciência. Tudo o que sou hoje é um reflexo do amor e da dedicação que recebi de vocês dois.</p>
+                <p>Obrigado por serem a minha bússola e o meu chão. <i class="fas fa-hand-holding-heart" style="color: var(--cor-destaque);"></i></p>
+            </div>
+        </div>
+    </section>
+
+    <hr>
+
+    <section id="momentos" class="fade-in">
+        <div class="container">
+            <h2 class="fade-in">Momentos</h2>
+            <p class="section-subtitle fade-in">Memórias que aquecem o coração.</p>
+
+            <div class="carousel-container fade-in">
+                <div class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="namorada.jpg" alt="Momento em família 1">
+                        <div class="carousel-caption">O Laço Mais Forte.</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="familia2.jpg" alt="Momento em família 2">
+                        <div class="carousel-caption">Nossa Base de Amor.</div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="eu.jpg" alt="Momento em família 3">
+                        <div class="carousel-caption">Juntos, Sempre.</div>
+                    </div>
+                </div>
+                <button class="carousel-button" id="prevBtn">&#10094;</button>
+                <button class="carousel-button" id="nextBtn">&#10095;</button>
+            </div>
+
+            <p style="margin-top: 2rem;" class="fade-in">"Não são os grandes eventos, mas os pequenos momentos juntos que definem uma família."</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            Minha Base, Meu Lar 🤍 | &copy; 2025 Homenagem Familiar
+        </div>
+    </footer>
+
+    <script>
+        // === Carrossel Simples ===
+        const track = document.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextButton = document.getElementById('nextBtn');
+        const prevButton = document.getElementById('prevBtn');
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        let slideIndex = 0;
+
+        // Função para mover o carrossel
+        const moveToSlide = (track, currentSlide, targetSlide) => {
+            track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+            slideIndex = slides.indexOf(targetSlide);
+        };
+
+        // Organizar slides lado a lado
+        const setSlidePosition = (slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        };
+        slides.forEach(setSlidePosition);
+
+        // Botão Próximo
+        nextButton.addEventListener('click', e => {
+            let nextIndex = (slideIndex + 1) % slides.length;
+            moveToSlide(track, slides[slideIndex], slides[nextIndex]);
+        });
+
+        // Botão Anterior
+        prevButton.addEventListener('click', e => {
+            let prevIndex = (slideIndex - 1 + slides.length) % slides.length;
+            moveToSlide(track, slides[slideIndex], slides[prevIndex]);
+        });
+
+        // === Animação Fade-in ao Rolar ===
+        const fadeInElements = document.querySelectorAll('.fade-in');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.2 // Aparece quando 20% do elemento está visível
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Para de observar após aparecer
+                }
+            });
+        }, observerOptions);
+
+        fadeInElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
